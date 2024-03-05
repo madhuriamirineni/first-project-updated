@@ -1,0 +1,36 @@
+/* .card{
+  height:auto;
+  width:600px; */
+  /* align-self:center; */
+  /* justify-self: center; */
+  /* margin-left: 350px;
+  align-items: center;
+  justify-items: center;
+} */
+.fluid-container{
+background-image: url(https://img.freepik.com/free-photo/coffee-near-book-with-leaf_23-2147868658.jpg?size=626&ext=jpg&uid=R135276672&ga=GA1.1.191500216.1705576075&semt=ais);
+ background-repeat: no-repeat;
+ display: block;
+ background-position: 100%;
+ background-size: cover;
+ bottom: 1px;
+ top: 10px;
+  height: 550px;
+
+
+
+
+}
+.container{
+    align-items: center;
+}
+
+.row{
+    align-items: center;
+}
+.back{
+    margin-top: 10px;
+}
+button{
+    margin-top: 20px;
+}

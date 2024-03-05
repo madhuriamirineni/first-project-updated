@@ -1,0 +1,21 @@
+<ul class="nav justify-content-end  bg-dark text-light">
+    @if(status===false){
+      <li class="nav-item">
+        <a class="nav-link text-light " aria-current="page" routerLinkActive="Active" routerLink="home">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light"  routerLinkActive="Active" routerLink="register">REGISTER</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLinkActive="Active" routerLink="login">LOGIN</a>
+      </li>
+    }
+      @else{
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLinkActive="Active" routerLink="login" (click)="userService.userLogout()">LOGOUT</a>
+        </li>
+        
+      }
+     
+      
+      

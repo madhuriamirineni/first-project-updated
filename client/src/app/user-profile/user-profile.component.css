@@ -1,0 +1,139 @@
+/* input{
+    width:50%;
+    padding:8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+} */
+/* label{
+    display: block;
+    margin-bottom: 5px;
+} */
+form{
+    margin-top: 20px;
+}
+button{
+    padding:10px;
+    /* background-color: #a1768ed4; */
+    /* color:#fff; */
+    border:none;
+    cursor:pointer;
+    border-radius: 5px;
+}
+button.edit-btn{
+    background-color: #2196F3;
+}
+/* button.add-article-btn{
+    /* background-color: #398ad2; */
+    /* justify-self: auto;
+    border: 2px white; */
+/* } */ 
+
+
+
+
+
+body{
+  font-family: 'Arial',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+    margin-top: 15px;
+    /* padding:20px */
+}
+.card-1{
+    background-image:url('../../assets/fiction.jpg') ;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width:300px;
+    border: 2px solid rgb(20, 1, 1);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(20,1,1,2) ;
+    color:white;
+    text-align: center;
+    justify-content: center;
+    padding:20px;
+    margin:10px
+   
+}
+.card-2{
+    background-image:url('../../assets/novel.jpg') ;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width:300px;
+    border: 2px solid rgb(20, 1, 1);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(20,1,1,2) ;
+    color:white;
+    text-align: center;
+    justify-content: center;
+    padding:20px;
+    margin:10px
+}
+.card-3{
+    background-image:url('../../assets/history.jpg') ;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width:300px;
+    border: 2px solid rgb(20, 1, 1);
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(20,1,1,2) ;
+    color:white;
+    text-align: center;
+    justify-content: center;
+    padding:20px;
+    margin:10px;
+    text-align: center;
+}
+
+@media(min-width:768px)and(max-width:1024px){
+    .container{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card-1,.card-2,.card-3{
+        width:60%;
+        justify-content: space-evenly;
+        flex:1 0 100%
+    }
+}
+
+@media (max-width:768px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-1,.card-2,.card-3{
+        width:60%;
+        margin-bottom: 10px;
+        flex:1 0 48%
+    }
+}
+
+.fluid-container{
+    background-image: url('https://img.freepik.com/free-vector/realistic-turquoise-glitter-background_23-2150040992.jpg?w=900&t=st=1706504477~exp=1706505077~hmac=c723730957990a3c4c91fe42d408a1188700e2c9cea5bc259d06e7b2ce8b4581');
+ height: 100vh;
+}
+.genre{
+    background-color: burlywood;
+    color: white;
+}
+.genre:hover{
+    color:white;
+    background-color:rgba(165, 42, 42, 0.379);
+}
+@media only screen and (max-width:768px){
+    .fluid-container{
+        height:112vh;
+    }
+}

@@ -1,0 +1,133 @@
+<h2 class="mb-2">Article Details-{{category}}</h2>
+
+<label for="filter">Filter by name</label>
+<input type="text" id="filter" #nameInput>
+<button class="btn btn-primary mb-3" (click)="filterBy(nameInput)">filter</button>
+
+
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-3" *ngFor="let article of articles">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{article?.title}}</h5>
+          <img  height="200px" width="200px" [src]="article?.imageUrl">
+          <div class="justify align-content">
+            <p class="card-text my-3 h-10 " style="overflow: hidden;">{{article?.summary}}</p>
+          </div>
+          <div class="foot">
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{article?.username}}</h6>
+            <a (click)="navigateToReadMore(currentUsername,category,article._id)">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- @for(article of articles;track article){
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{article?.title}}</h5>
+      <img  height="200px" width="200px" [src]="article?.imageUrl">
+      <div class="justify align-content">
+        <p class="card-text my-3 h-10 " style="overflow: hidden;">{{article?.summary}}</p>
+      </div>
+
+      <div class="foot">
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{article?.username}}</h6>
+        <a (click)="navigateToReadMore(currentUsername,category,article._id)">Read More</a>
+      </div>
+
+    </div>
+  </div>
+} -->
+
+<!-- <div class="container">
+  <div class="card-container">
+    <div class="card" style="width: 18rem;" *ngFor="let article of fictionArticles" >
+      <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        <img  height="200px" width="200px" [src]="article.imageUrl">
+        <div class="justify align-content">
+          <p class="card-text my-3 h-10 " style="overflow: hidden;">{{article.summary}}</p>
+        </div>
+  
+        <div class="foot">
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{article.username}}</h6>
+          <a (click)="navigateToReadMore(currentUsername,category,article.id)">Read More</a>
+        </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="card-container">
+    <div class="card" style="width: 18rem;" *ngFor="let article of novelArticles" >
+      <div class="card-body">
+        <h5 class="card-title">{{article.title}}</h5>
+        <img  height="200px" width="200px" [src]="article.imageUrl">
+        <div class="justify align-content">
+          <p class="card-text my-3 h-10 " style="overflow: hidden;">{{article.summary}}</p>
+        </div>
+  
+        <div class="foot">
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{article.username}}</h6>
+          <a (click)="navigateToReadMore(currentUsername,category,article.id)">Read More</a>
+        </div>
+    </div>
+  </div>
+
+</div> -->
+
+
+
+<!-- <div class="card-container" *ngIf="category==='fiction'"> -->
+  <!-- <div class="card" style="width: 18rem;" *ngFor="let article of articles;let i=index">
+    <div class="card-body">
+      <h5 class="card-title">{{article.title}}</h5>
+      <img  height="200px" width="200px" [src]="article.imageUrl">
+      <div class="justify align-content">
+        <p class="card-text my-3 h-10 " style="overflow: hidden;">{{article.summary}}</p>
+      </div>
+
+      <div class="foot">
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{article.username}}</h6>
+        <a (click)="navigateToReadMore(currentUsername,category,article.id)">Read More</a>
+      </div>
+
+
+    </div>
+  </div> -->
+<!-- </div> -->
+
+<!-- <div class="card-container" *ngIf="category==='novel'">
+  <div class="card" style="width: 18rem;" *ngFor="let article of articles;let i=index">
+    <div class="card-body">
+      <h5 class="card-title">{{article?.title}}</h5>
+      <img   height="200px" width="200px" [src]="article?.imageUrl">
+      <p class="card-text">{{article?.summary}}</p>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{article?.username}}</h6>
+      <p><a (click)="navigateToReadMore(currentUsername,category,article.id)">Read More..</a></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="card-container" *ngIf="category==='history'">
+  <div class="card" style="width: 18rem;" *ngFor="let article of articles;let i=index">
+    <div class="card-body">
+      <h5 class="card-title">{{article.title}}</h5>
+      <img  height="200px" width="200px" [src]="article.imageUrl">
+      <p class="card-text">{{article.summary}}</p>
+      <h6 class="card-subtitle mb-2 text-body-secondary">{{article.username}}</h6>
+
+      <p><a (click)="navigateToReadMore(currentUsername,category,article.id)">Read More..</a></p>
+    </div>
+  </div>
+</div> -->
+
+
+

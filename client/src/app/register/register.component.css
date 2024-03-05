@@ -1,0 +1,22 @@
+.fluid-container{
+    background-image: url(https://img.freepik.com/free-photo/open-book-more-books_23-2148213810.jpg?w=900&t=st=1706503173~exp=1706503773~hmac=2465242f2e1056581202ecb2cd1c6e6fb4f63d0328854978217787196dfbb9fe);
+ background-repeat: no-repeat;
+ display: block;
+ background-position: 100%;
+ background-size: cover;
+ bottom: 1px;
+ top: 10px;
+  height: 550px;
+
+
+
+
+}
+
+.back{
+    margin-top: 10px;
+}
+
+button{
+    margin-top: 20px;
+}

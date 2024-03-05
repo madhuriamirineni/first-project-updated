@@ -1,0 +1,44 @@
+.card-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+
+}
+
+.card{
+    width:30%;
+    margin-bottom: 30px;
+    justify-content: space-evenly;
+    height: 600px;
+
+}
+
+.foot{
+    position:absolute;
+    align-items:end;
+    margin-top: auto;
+}
+
+/* @media (min-width:768)and(max-width:1024px){
+    .card-container{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card{
+        width:35%;
+    }
+
+}
+
+@media(max-width:768){
+
+    .card-container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card{
+        width: 60%;
+    }
+} */

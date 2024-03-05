@@ -1,0 +1,44 @@
+<div class="fluid-container">
+
+
+<div class="containers text-end">
+
+    <p class="h5 text-light">Welcome,{{currentusername}}</p>
+    <p class="h5 text-light">{{currentemail}}</p>
+     <form *ngIf="isEditMode" [formGroup]="editForm" (ngSubmit)="onEditFormSubmit()">
+        <label>Username:</label>
+        <input type="text" formControlName="username">
+
+        <label>Email:</label>
+        <input type="email" formControlName="email">
+
+        <button type="btn" (click)="onEditFormSubmit()" style="color: green;border:2px solid green;">Save Changes</button>
+    </form>
+
+    <button class="edit-btn" (click)="toggleEditMode()" style="color: white;border: 2px solid black;">Edit Profile</button>
+</div>
+<button routerLink="/add-article" class="mb-4" style="border: 2px solid black;">Add Article <a>Here</a></button>
+
+
+<div class="container">
+
+    <div class="card-1 display-flex">
+        <h3>Fiction</h3>
+        <p>Something imaginary or invented!!</p>
+        <button class="genre" (click)="navigateToArticleDetails(currentusername,'fiction')">Fiction</button>
+    </div>
+
+    <div class="card-2 display-flex">
+        <h3>Novel</h3>
+        <p>Something imaginary or invented</p>
+        <button  class="genre" (click)="navigateToArticleDetails(currentusername,'novel')">Novel</button>
+    </div>
+
+    <div class="card-3 display-flex">
+        <h3>History</h3>
+        <p>Something imaginary or invented</p>
+        <button class="genre" (click)="navigateToArticleDetails(currentusername,'history')">History</button>
+    </div>
+
+</div>
+</div>

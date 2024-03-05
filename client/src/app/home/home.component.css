@@ -1,0 +1,43 @@
+.header {
+    background-color: #1abc9C;
+    font-size: 1em;
+}
+
+a:hover {
+    color: black !important;
+}
+
+.page-background{
+    background-image: url('https://img.freepik.com/free-photo/top-view-books-glasses_23-2148213821.jpg?w=1060&t=st=1706502936~exp=1706503536~hmac=5fdf8c4cb4bec25f349cbe10c2cb673f0c108eb2ebd5088491e5d4bfa8baa0fc');
+    background-size: cover;
+    background-position: center;
+    height:100vh;
+    /* position: relative; */
+}
+ 
+button{
+    /* position: absolute; */
+    margin-top: 400px;
+    right:150px;
+    background-color: black;
+    margin-left: 80%;
+    width:fit-content;
+    margin-right: 20px;
+}
+
+.card{
+    background-color: rgb(255,255,255,0);
+    position:absolute;
+    top:380px;
+    border: none;
+}
+
+@media (max-width:768px){
+    .header{
+        font-size: 0.5em;
+    }
+    button{
+        margin-left: 70%;
+    }
+
+}
