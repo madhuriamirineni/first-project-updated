@@ -8,7 +8,15 @@
 
 <p class="display-2 text-center text-success " style="font-weight:400;">REGISTER</p>
 <div class="container">
-  <form class="w-50 mx-auto form mt-3" [formGroup]="user" (ngSubmit)="onSubmitUser()" #ref="ngForm">
+  <form class="w-50 mx-auto form mt-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()" #ref="ngForm">
+
+    <div>
+      <input type="radio" formControlName="registerType" id="user" value="user">
+      <label for="user">User</label>
+  
+      <input type="radio" formControlName="registerType" id="author" value="author">
+      <label for="author">Author</label>
+    </div>
 
     <div class="mb-2">
       <label for="username" class="form-label h5">Username</label>
@@ -36,13 +44,20 @@
       </div>
     </div>
 
-    <div class="mb-2">
-      <label for="dob" class="form-label h5">Date of Birth</label>
-      <input type="date" formControlName="dob" id="dob" class="form-control">
-      <div *ngIf="dob?.invalid &&(dob?.dirty||dob?.touched||ref.submitted)">
-        <p *ngIf="dob?.errors?.['required']" class="text-danger">Date of Birth is required</p>
+    
+
+    @if(registerForm.get('registerType').value==='user'){
+      <div class="mb-2">
+        <label for="dob" class="form-label h5">Date of Birth</label>
+        <input type="date" formControlName="dob" id="dob" class="form-control">
+        <div *ngIf="dob?.invalid &&(dob?.dirty||dob?.touched||ref.submitted)">
+          <p *ngIf="dob?.errors?.['required']" class="text-danger">Date of Birth is required</p>
+        </div>
       </div>
-    </div>
+    }
+    @else{
+
+    }
 
     <button class="btn btn-success d-block mx-auto">Register</button>
     <p class=" back text-center text-light h6">Already have an account? <a routerLink="/login">Login</a></p>

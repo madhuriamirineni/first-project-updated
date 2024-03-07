@@ -3,6 +3,7 @@ import { ArticlesService } from '../articles.service';
 import { ActivatedRoute } from '@angular/router';
 import { ReviewService } from '../review.service';
 import { Review } from '../model/review';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-read-more',
@@ -22,6 +23,9 @@ export class ReadMoreComponent {
   articleService = inject(ArticlesService);
   activatedRoute = inject(ActivatedRoute);
   reviewService = inject(ReviewService);
+  userService=inject(UserService)
+
+  isUser:boolean=false;
 
 
   ngOnInit(): void {
@@ -29,6 +33,15 @@ export class ReadMoreComponent {
     this.articleId = this.activatedRoute.snapshot.paramMap.get('id');
     this.fetchArticleDetails();
     this.fetchReviews();
+    this.userService.getLoginType().subscribe(
+      (res)=>{
+        console.log(this.isUser)
+      this.isUser=res==='user';
+      
+      },
+      (error)=>{
+        console.log("error in getting role",error)})
+
   }
 
   fetchArticleDetails(): void {

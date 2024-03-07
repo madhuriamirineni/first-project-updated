@@ -22,6 +22,9 @@ app.use('/article-api',articleApp)
 const reviewApp=require('./APIs/review-api')
 app.use('/review-api',reviewApp)
 
+const authorApp=require('./APIs/author-api')
+app.use('/author-api',authorApp)
+
 //error handler m-w
 app.use((err,req,res,next)=>{
     res.send({message:"error occured",payload:err.message})

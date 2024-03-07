@@ -14,8 +14,8 @@ reviewApp.get('/reviews/article/:articleId',expressAsyncHandler(getReviewByArtic
 
 reviewApp.post('/reviews',expressAsyncHandler(createReview))
 
-// reviewApp.put('/reviews',expressAsyncHandler(updateReview))
-reviewApp.get('/reviews',)
+// reviewApp.put('/reviews/:id',expressAsyncHandler(updateReview))
+
 
 reviewApp.delete('/reviews/article/:articleId',expressAsyncHandler(removeReview))
 

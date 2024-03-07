@@ -17,7 +17,14 @@
 
     <button class="edit-btn" (click)="toggleEditMode()" style="color: white;border: 2px solid black;">Edit Profile</button>
 </div>
-<button routerLink="/add-article" class="mb-4" style="border: 2px solid black;">Add Article <a>Here</a></button>
+
+@if(!isUser){
+    <button routerLink="/add-article" class="mb-4" style="border: 2px solid black;">Add Article <a>Here</a></button>
+
+}
+@else{
+
+}
 
 
 <div class="container">

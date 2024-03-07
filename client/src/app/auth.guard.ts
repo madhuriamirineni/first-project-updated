@@ -10,6 +10,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   userService.getUserLoginStatus().subscribe({
     next:(loginStatus)=>{status=loginStatus}
   })
+  // userService.getAuthorLoginStatus().subscribe({
+  //   next:(loginStatus)=>{status=loginStatus}
+  // })
   if(status){
     return true
   }

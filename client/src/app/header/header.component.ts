@@ -14,5 +14,8 @@ export class HeaderComponent implements OnInit{
  this.userService.getUserLoginStatus().subscribe({
   next:(userLoginStatus)=>this.status=userLoginStatus
  })
+//  this.userService.getAuthorLoginStatus().subscribe({
+//   next:(authorLoginStatus)=>{this.status=authorLoginStatus}
+//  })
  }
 }

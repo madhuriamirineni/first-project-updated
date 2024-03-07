@@ -61,22 +61,35 @@ toggleEditMode(){
 }
 
 
-
+isUser:boolean=false;
 articles:Post[];
 selectedCategory:string='';
 
 ngOnInit(): void {
   let username=this.activatedRoute.snapshot.paramMap.get('username')
+  console.log("username in user profile is ",username)
   
-  this.userService.getUserByUsername(username).subscribe(
-    
+  this.userService.getCurrentUser().subscribe(    
     (userList)=>{
-    this.currentUser=userList['payload'][0];
-    this.currentusername=userList['payload'][0].username;
-    this.currentemail=userList['payload'][0].email;
+      console.log("user in user profile ",userList)
+    this.currentUser=userList;
+    this.currentusername=userList.username;
+    this.currentemail=userList.email;
     },
     (error)=>{console.log(error)}
   );
+
+  this.userService.getLoginType().subscribe(
+(res)=>{
+  console.log(this.isUser)
+this.isUser=res==='user';
+
+},
+(error)=>{
+  console.log("error in getting role",error)
+}
+    
+  )
   
 }
 

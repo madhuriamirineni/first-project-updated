@@ -27,7 +27,7 @@ const routes: Routes = [
   {
     path:'user-profile/:username',
     component:UserProfileComponent,
-    canActivate:[authGuard]
+    // canActivate:[authGuard]
   },
   {
     path:'article-details/:username/:category',

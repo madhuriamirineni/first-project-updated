@@ -24,12 +24,20 @@ export class ArticleDetailsComponent implements OnInit {
  currentUser;
  currentUsername;
  username;
+ loginType;
  
  ngOnInit():void{
 
   this.category=this.router.snapshot.paramMap.get('category')
     this.fetchArticles();
-
+    this.userService.getLoginType().subscribe({
+      next:logintype=>{
+        this.loginType = logintype
+      },
+      error:err=>{
+        console.log("Error getting login type ",err)
+      }
+    })
     this.userService.getCurrentUser().subscribe(
       (res)=>{
         console.log(res)
@@ -88,13 +96,22 @@ fetchArticles():void{
 
  getUserDetails(){
   // let username=this.router.snapshot.paramMap.get('username');
-  this.userService.getUserByUsername(this.username).subscribe(
-    (userList)=>{
-      console.log('userList')
-    this.currentUser=userList['payload'][0];
-    this.currentUsername=userList['payload'][0].username;
+  if(this.loginType=='user'){
+    this.userService.getUserByUsername(this.username).subscribe(
+      (userList)=>{
+        console.log('userList is ',userList)
+        this.currentUser=userList['payload'][0];
+        this.currentUsername=userList['payload'][0].username;
+      })
     }
-  )
+    else{
+      this.userService.getAuthorByUsername(this.username).subscribe(
+        (userList)=>{
+          console.log('AuthorList is ',userList)
+          this.currentUser=userList['payload'];
+          this.currentUsername=userList['payload'].username;
+        })
+    }
  }
  
 
