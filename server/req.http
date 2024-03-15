@@ -1,0 +1,7 @@
+put http://localhost:4000/review-api/reviews/65e5a519fffc3937db9e08bc
+Content-Type:application/json
+
+{
+    "comment":"not bad",
+    "rating":3
+}

@@ -21,10 +21,14 @@ export class ReviewService {
     return this.http.post<Review>(`http://localhost:4000/review-api/reviews`, reviewData);
   }
 
+  updateReview(reviewId:string,Updateddata){
+    return this.http.put<Review>(`http://localhost:4000/review-api/reviews/${reviewId}`,Updateddata)
+  }
 
-  deleteReviewByArticleId(articleId:string): Observable<any> {
+
+  deleteReviewByReviewId(reviewId:string): Observable<any> {
     // const url = `${this.apiUrl}/${reviewId}`;
-    return this.http.delete<any>(`http://localhost:4000/review-api/reviews/article/${articleId}`);
+    return this.http.delete<any>(`http://localhost:4000/review-api/reviews/${reviewId}`);
   }
 
 }

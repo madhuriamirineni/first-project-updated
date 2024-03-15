@@ -10,7 +10,21 @@ export class HeaderComponent implements OnInit{
 
   userService=inject(UserService)
  status:boolean;
+ isUser:boolean=false;
  ngOnInit():void{
+
+  this.userService.getLoginType().subscribe(
+    (res)=>{
+      console.log(this.isUser)
+    this.isUser=res==='user';
+    
+    },
+    (error)=>{
+      console.log("error in getting role",error)
+    }
+        
+      )
+  
  this.userService.getUserLoginStatus().subscribe({
   next:(userLoginStatus)=>this.status=userLoginStatus
  })

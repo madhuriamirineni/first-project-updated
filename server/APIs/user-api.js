@@ -8,7 +8,7 @@ const expressAsyncHandler=require('express-async-handler')
 //import req handlers from Controllers
 const {getUsers,getUserByUsername,createUser,loginUser,updateUser,removeUser}=require('../Controllers/userControllers')
 const verifyDuplicateUser=require('../Middlewares/verifyDuplicateUser')
-const verifyToken=require('../Middlewares/verifyToken')
+
 
 
 

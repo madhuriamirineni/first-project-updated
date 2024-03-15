@@ -27,5 +27,10 @@ export class ArticlesService {
 
     return this.http.post('http://localhost:4000/article-api/article', formData);
   }
+
+  deleteReviewByArticleId(articleId:string): Observable<any> {
+    // const url = `${this.apiUrl}/${reviewId}`;
+    return this.http.delete<any>(`http://localhost:4000/article-api/article/${articleId}`);
+  }
 }
 

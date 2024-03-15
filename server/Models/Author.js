@@ -2,7 +2,7 @@
 const mongoose=require('mongoose')
 require('dotenv').config()
 
-const DB_URL=process.env.ATLAS_DB_URL;
+const DB_URL=process.env.LOCAL_DB_URL;
 
 //connect to database
 mongoose.connect(DB_URL)

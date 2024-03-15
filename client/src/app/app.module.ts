@@ -18,6 +18,7 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { TestComponent } from './test/test.component';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './auth.interceptor';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { authInterceptor } from './auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgToastModule
   ],
   providers: [provideHttpClient(withFetch()),provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent]

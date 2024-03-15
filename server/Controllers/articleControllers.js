@@ -49,7 +49,7 @@ const updateArticle = async (req, res) => {
 }
 
 const removeArticle = async (req, res) => {
-    let article = await User.deleteOne({ title: req.params.title })
+    let article = await User.findByIdAndDelete({_id:req.params.id })
     res.status(200).send({ message: "Article removed", payload: article })
 }
 

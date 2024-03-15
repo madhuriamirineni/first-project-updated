@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ReviewService } from '../review.service';
 import { Review } from '../model/review';
 import { UserService } from '../user.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-read-more',
@@ -15,6 +16,7 @@ export class ReadMoreComponent {
   articleId: string;
   article: any;
   reviews: Review[] = [];
+  reviewId;
   rating: number;
   comment: string;
   createdAt:Date;
@@ -24,8 +26,15 @@ export class ReadMoreComponent {
   activatedRoute = inject(ActivatedRoute);
   reviewService = inject(ReviewService);
   userService=inject(UserService)
+  showUpdate=false;
+  showSubmit=true;
 
   isUser:boolean=false;
+  fb: FormBuilder = inject(FormBuilder);
+  reviewForm=this.fb.group({
+    rating: ['', [Validators.required]],
+    comment: ['', Validators.required]
+  })
 
 
   ngOnInit(): void {
@@ -67,15 +76,10 @@ export class ReadMoreComponent {
   }
 
   submitReview():void{
-    //check if rating and comment are provided.
-    if(!this.rating ||!this.comment){
-      console.log('Rating and comment are required.')
-      return;
-    }
    let reviewData={
       articleId:this.articleId,
-      rating:this.rating,
-      comment:this.comment,
+      rating:Number(this.reviewForm.value.rating),
+      comment:this.reviewForm.value.comment,
       // createdAt:this.createdAt
     }
     console.log(reviewData)
@@ -85,8 +89,7 @@ export class ReadMoreComponent {
         console.log('Review submitted successfully:',data)
         this.fetchReviews();//refresh reviews after submission
         //reset form fields
-        this.rating=null;
-        this.comment='';
+        this.reviewForm.reset({rating:null,comment:null})
       },
       (error:any)=>{
         console.log('Error submitting review:',error)
@@ -94,14 +97,41 @@ export class ReadMoreComponent {
     )
   }
 
-  deleteReview(articleId:string):void{
-    this.reviewService.deleteReviewByArticleId(articleId).subscribe(
+  deleteReview(reviewId:string):void{
+    this.reviewService.deleteReviewByReviewId(reviewId).subscribe(
       (data:any)=>{
         console.log('Review deleted successfully:',data);
         this.fetchReviews();
       },
       (error)=>{
         console.log('Error deleting review:',error);
+      }
+    )
+  }
+
+  //to set the form values for editing
+  editReview(review){
+    this.showSubmit=false
+    this.showUpdate=true
+    console.log("review is ",review)
+    this.reviewId = review._id
+    this.reviewForm.controls['comment'].setValue(review.comment)
+    this.reviewForm.controls['rating'].setValue(review.rating)
+    // this.reviewForm.reset({rating:null,comment:null})
+  }
+
+  updateReview(){
+    this.showSubmit=true
+    this.showUpdate=false
+    let updateddata = {comment:this.reviewForm.value.comment,rating:this.reviewForm.value.rating}
+    this.reviewService.updateReview(this.reviewId,updateddata).subscribe(
+      (data:any)=>{
+        console.log('Review updated successfully: ',data);
+        this.fetchReviews();
+        this.reviewForm.reset({rating:null,comment:null})
+      },
+      (error)=>{
+        console.log('Error in updating review: ',error)
       }
     )
   }

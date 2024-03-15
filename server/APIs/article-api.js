@@ -3,6 +3,7 @@ const exp=require('express')
 const articleApp=exp.Router()
 
 const {upload}=require('../Middlewares/cloudinaryUpload')
+const verifyToken=require('../Middlewares/verifyToken')
 
 //add express-async-handler to handle async errors
 const expressAsyncHandler=require('express-async-handler')
@@ -10,18 +11,23 @@ const expressAsyncHandler=require('express-async-handler')
 const {getArticles,getArticleByCategory,getArticleById,createArticle,updateArticle,removeArticle}=require('../Controllers/articleControllers')
 
 
-articleApp.get('/articles',expressAsyncHandler(getArticles))
+articleApp.get('/articles',verifyToken,expressAsyncHandler(getArticles))
 
-articleApp.get('/article/:id',expressAsyncHandler(getArticleById))
+articleApp.get('/article/:id',verifyToken,expressAsyncHandler(getArticleById))
 
 
-articleApp.get('/article/category/:category',expressAsyncHandler(getArticleByCategory))
+articleApp.get('/article/category/:category',verifyToken,expressAsyncHandler(getArticleByCategory))
 
-articleApp.post('/article',upload.single('imageUrl'),expressAsyncHandler(createArticle))
+articleApp.post('/article',verifyToken,upload.single('imageUrl'),expressAsyncHandler(createArticle))
 
-articleApp.put('/article',expressAsyncHandler(updateArticle))
+articleApp.put('/article',verifyToken,expressAsyncHandler(updateArticle))
 
-articleApp.delete('/article/:category',expressAsyncHandler(removeArticle))
+articleApp.delete('/article/:id',verifyToken,expressAsyncHandler(removeArticle))
+
+
+
+
+
 
 
 

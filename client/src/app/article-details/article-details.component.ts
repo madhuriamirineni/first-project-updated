@@ -25,8 +25,20 @@ export class ArticleDetailsComponent implements OnInit {
  currentUsername;
  username;
  loginType;
+ isUser:boolean=false;
  
  ngOnInit():void{
+
+  // this.userService.getLoginType().subscribe(
+  //   (res)=>{
+  //     console.log(this.isUser)
+  //   this.isUser=res==='user';
+    
+  //   },
+  //   (error)=>{
+  //     console.log("error in getting role",error)}
+  //     )
+
 
   this.category=this.router.snapshot.paramMap.get('category')
     this.fetchArticles();
@@ -113,6 +125,8 @@ fetchArticles():void{
         })
     }
  }
+ 
+
  
 
  navigateToReadMore(username,category,id):void{

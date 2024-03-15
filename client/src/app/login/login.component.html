@@ -1,5 +1,5 @@
 <div class="fluid-container">
-  <p class="display-1 text-center text-danger" style="font-weight: 400;" >LOGIN</p>
+  <p class="display-1 text-center text-white" style="font-weight: 400;" >LOGIN</p>
   <!-- <div class="container"> -->
   <!-- <div class="row"> -->
   <!-- <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2"> -->
@@ -13,30 +13,30 @@
 
   <form class="w-50 mx-auto mt-3" [formGroup]="userCredentials" (ngSubmit)="onSubmitUser()" #ref="ngForm">
 
-    <div>
+    <div class="mb-2">
       <input type="radio" formControlName="loginType" id="user" value="user">
-      <label for="user">User</label>
+      <label for="user" class="text-info mb-2">User</label>
   
       <input type="radio" formControlName="loginType" id="author" value="author">
-      <label for="author">Author</label>
+      <label for="author" class="text-info">Author</label>
     </div>
   
 
     <div class="mb-2">
-      <label for="username" class="form-label h5 text-danger">Username</label>
+      <label for="username" class="form-label h5 text-white">Username</label>
       <input type="text" formControlName="username" id="username" class="form-control">
       <div *ngIf="username?.invalid &&(username?.dirty||username?.touched||ref.submitted)">
-        <p *ngIf="username?.errors?.['required']" class="text-danger">Username is required</p>
-        <p *ngIf="username?.errors?.['minlength']" class="text-danger">MinLength is 4</p>
-        <p *ngIf="username?.errors?.['maxlength']" class="text-danger">MaxLength is 6</p>
+        <p *ngIf="username?.errors?.['required']" class="text-warning">Username is required</p>
+        <p *ngIf="username?.errors?.['minlength']" class="text-warning">MinLength is 4</p>
+        <p *ngIf="username?.errors?.['maxlength']" class="text-warning">MaxLength is 6</p>
       </div>
     </div>
     
     <div class="mb-2">
-      <label for="password" class="form-label h5 text-danger">Password</label>
+      <label for="password" class="form-label h5 text-white">Password</label>
       <input type="password" formControlName="password" id="password" class="form-control">
       <div *ngIf="password?.invalid &&(password?.dirty||password?.touched||ref.submitted)">
-        <p *ngIf="password?.errors?.['required']" class="text-danger">Password is required</p>
+        <p *ngIf="password?.errors?.['required']" class="text-warning">Password is required</p>
       </div>
     </div>
 

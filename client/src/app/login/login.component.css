@@ -1,21 +1,15 @@
-/* .card{
-  height:auto;
-  width:600px; */
-  /* align-self:center; */
-  /* justify-self: center; */
-  /* margin-left: 350px;
-  align-items: center;
-  justify-items: center;
-} */
+
 .fluid-container{
-background-image: url(https://img.freepik.com/free-photo/coffee-near-book-with-leaf_23-2147868658.jpg?size=626&ext=jpg&uid=R135276672&ga=GA1.1.191500216.1705576075&semt=ais);
+/* background-image: url(https://img.freepik.com/free-photo/coffee-near-book-with-leaf_23-2147868658.jpg?size=626&ext=jpg&uid=R135276672&ga=GA1.1.191500216.1705576075&semt=ais); */
+background-image: url(https://img.freepik.com/free-photo/open-book-with-fairytale-scene_52683-107847.jpg?t=st=1710411531~exp=1710415131~hmac=cc9a0199310f07dee21643bbdc307655ed27a6537af9d3c71d55cd06013c7c90&w=900);
  background-repeat: no-repeat;
  display: block;
- background-position: 100%;
+ background-position: center center;
  background-size: cover;
+ /* background-attachment: fixed; */
  bottom: 1px;
  top: 10px;
-  height: 550px;
+ height: 550px;;
 
 
 

@@ -1,8 +1,8 @@
 <h2 class="mb-2">Article Details-{{category}}</h2>
 
-<label for="filter">Filter by name</label>
-<input type="text" id="filter" #nameInput>
-<button class="btn btn-primary mb-3" (click)="filterBy(nameInput)">filter</button>
+<label for="filter" style="margin-right: 10px;font-size: 20px;">Filter by name:</label>
+<input type="text" style="border-radius: 10px;" id="filter" #nameInput placeholder="search here...">
+<button class="btn btn-primary mb-10" (click)="filterBy(nameInput)" style="padding-top: 0px;padding-bottom: 0px;">filter</button>
 
 
 <div class="fluid-container">
@@ -18,6 +18,13 @@
           <div class="foot">
             <h6 class="card-subtitle mb-2 text-body-secondary">{{article?.username}}</h6>
             <a (click)="navigateToReadMore(currentUsername,category,article._id)">Read More</a>
+            <!-- @if(!isUser) {
+              <button type="button" (click)="deleteArticle(article._id)">Delete</button>
+              <button type="button" (click)="editArticle(article)">Edit</button>
+          } 
+          @else{
+  
+          }     -->
           </div>
         </div>
       </div>

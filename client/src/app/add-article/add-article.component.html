@@ -2,7 +2,7 @@
 <div class="container">
  <form class="w-50 mx-auto mt-5"[formGroup]="articleForm" #ref="ngForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
-        <label for="title">Title:</label>
+        <label class="form-label" for="title">Title:</label>
         <input type="text" id="title" class="form-control" formControlName="title" placeholder="Enter the title">
         <div *ngIf="title?.invalid&&(title?.dirty||title?.touched||ref.submitted)" class="text-danger">
             <p *ngIf="title?.errors?.['required']">Title is required</p>
@@ -11,8 +11,8 @@
     </div>
 
     <div class="mb-3">
-        <label for="category">Category:</label>
-        <select id="category" formControlName="category">
+        <label class="form-label" for="category">Category:</label>
+        <select id="category"  class='form-control' formControlName="category">
             <option *ngFor="let category of categories" class="form-control" [value]="category">{{category}}</option>
         </select><br>
         <div *ngIf="articleForm.get('category').hasError('required')">Required</div>
@@ -20,7 +20,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="imageUrl">Choose Image</label>
+        <label class="form-label" for="imageUrl">Choose Image</label>
         <input type="file" id="imageUrl" class="form-control" name="imageUrl" formControlName="imageUrl" placeholder="Select file" (input)="onChange(f.files[0])" #f >
         <div *ngIf="imageUrl?.invalid&&(imageUrl?.dirty||imageUrl?.touched||ref.submitted)" class="text-danger">
             <p *ngIf="imageUrl?.errors?.['required']">Url is required</p>
@@ -29,8 +29,8 @@
     </div>
 
     <div class="mb-3">
-        <label for="summary">Summary:</label>
-        <textarea id="summary" formControlName="summary" placeholder="Enter the Summary" cols="30"></textarea>
+        <label class="form-label" for="summary">Summary:</label>
+        <textarea  class="form-control" id="summary" formControlName="summary" placeholder="Enter the Summary" cols="30"></textarea>
         <div *ngIf="summary?.invalid&&(summary?.dirty||summary?.touched||ref.submitted)" class="text-danger">
             <p *ngIf="summary?.errors?.['required']">Summary is required</p>
 
@@ -38,8 +38,8 @@
     </div>
 
     <div class="mb-3">
-        <label for="content">Content:</label>
-        <textarea id="content" formControlName="content" placeholder="Enter your Content" cols="30"></textarea>
+        <label class="form-label" for="content">Content:</label>
+        <textarea  class='form-control' id="content" formControlName="content" placeholder="Enter your Content" cols="30"></textarea>
         <div *ngIf="content?.invalid&&(content?.dirty||content?.touched||ref.submitted)" class="text-danger">
             <p *ngIf="content?.errors?.['required']">Content is required</p>
 
@@ -47,8 +47,8 @@
     </div>
 
     <div class="mb-3">
-        <label for="username">Username:</label>
-        <textarea id="username" formControlName="username" placeholder="Enter your Name" cols="30"></textarea>
+        <label class="form-label" for="username">Username:</label>
+        <textarea id="username"  class="form-control" formControlName="username" placeholder="Enter your Name" cols="30"></textarea>
         <div *ngIf="username?.invalid&&(username?.dirty||username?.touched||ref.submitted)" class="text-danger">
             <p *ngIf="username?.errors?.['required']">Username is required</p>
 
@@ -58,7 +58,7 @@
     <div class="buttons">
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
-        <button routerLink="user-profile/:username">Go back</button>
+        <button (click)="navigateBack()">Go back</button>
 
     </div>
 

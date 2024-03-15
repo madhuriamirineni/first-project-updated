@@ -1,5 +1,5 @@
 <div class="read-more">
-    <h2>Article Details</h2>
+    <h2 class="text-center">Article Details</h2>
     <div *ngIf="article">
         <div class="article-info">
             <div class="article-content">
@@ -15,17 +15,17 @@
 
 @if(isUser){
     <h3>Write a Review</h3>
-    <form (ngSubmit)="submitReview()">
+    <form class='form-group' [formGroup]="reviewForm">
         <div>
-            <label for="rating">Rating:</label>
-            <input type="number" id="rating" name="rating" [(ngModel)]="rating" min="1" max="5" required>
+            <label class="form-label" for="rating">Rating:</label>
+            <input type="number"  class='form-control' id="rating" name="rating" formControlName="rating" min="1" max="5" >
         </div>
         <div>
-            <label for="comment">Comment:</label>
-            <textarea id="comment" name="comment" [(ngModel)]="comment" rows="4" required></textarea>
+            <label  class="form-label" for="comment">Comment:</label>
+            <textarea id="comment" class='form-control' name="comment" formControlName="comment" rows="4" ></textarea>
         </div>
-        
-        <button type="submit">Submit Review</button>
+        <button type="submit" *ngIf="showSubmit" (click)="submitReview()">Submit Review</button>
+        <button type="submit" *ngIf="showUpdate" (click)="updateReview()" >Update Review</button>
     </form>
 }
 @else{
@@ -39,7 +39,16 @@
         <p>Rating: {{ review.rating }}</p>
         <p>Comment: {{ review.comment }}</p>
         <p>Created At:{{review.createdAt | date}}</p>
-        <button type="button" (click)="deleteReview(review.articleId)">Delete</button>
+        @if(isUser) {
+            <button type="button" (click)="deleteReview(review._id)" style="background-color: red;margin-right: 10px;">Delete</button>
+
+
+            <button type="button" (click)="editReview(review)">Edit</button>
+        } 
+        @else{
+
+        }    
+     
 
     </li>
 </ul>
