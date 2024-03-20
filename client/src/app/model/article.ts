@@ -1,4 +1,4 @@
-export interface Post{
+export interface Article{
     _id?:number,
     __v?:any,
     title?:string,

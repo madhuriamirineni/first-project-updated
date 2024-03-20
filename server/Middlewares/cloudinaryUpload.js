@@ -19,10 +19,6 @@ cloudinary.config({
     api_secret:'RF7Wa2GJf12XGzcxofRUF8_RZYE'
 })
 
-//config cloudinary storage
-// const storage=cloudinaryStorage({
-//     cloudinary:cloudinary
-// })
 
 //multer config
 const localStorage=multer.diskStorage({

@@ -15,9 +15,7 @@ export class HeaderComponent implements OnInit{
 
   this.userService.getLoginType().subscribe(
     (res)=>{
-      console.log(this.isUser)
     this.isUser=res==='user';
-    
     },
     (error)=>{
       console.log("error in getting role",error)
@@ -28,8 +26,17 @@ export class HeaderComponent implements OnInit{
  this.userService.getUserLoginStatus().subscribe({
   next:(userLoginStatus)=>this.status=userLoginStatus
  })
-//  this.userService.getAuthorLoginStatus().subscribe({
-//   next:(authorLoginStatus)=>{this.status=authorLoginStatus}
-//  })
  }
+
+ userLogout() {
+  //reset current user
+  localStorage.removeItem('token')
+  this.userService.setUserLoginStatus(false)
+  this.userService.setCurrentUser({
+    username:'',
+    password:'',
+    email:'',
+    dob:''
+  })
+}
 }

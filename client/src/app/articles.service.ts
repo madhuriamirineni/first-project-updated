@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Post } from './model/post';
+import { Article } from './model/article';
 import { Observable } from 'rxjs';
 
 
@@ -11,12 +11,9 @@ export class ArticlesService {
 
   constructor(private http: HttpClient) { }
 
-  getAllArticles(): Observable<any> {
-    return this.http.get(`http://localhost:4000/article-api/articles`)
-  }
 
-  getArticleByCategory(category:string): Observable<Post[]> {
-    return this.http.get<Post[]>(`http://localhost:4000/article-api/article/category/${category}`)
+  getArticleByCategory(category:string): Observable<Article[]> {
+    return this.http.get<Article[]>(`http://localhost:4000/article-api/article/category/${category}`)
   }
   
   getArticleById(id:string):Observable<any>{
@@ -28,9 +25,5 @@ export class ArticlesService {
     return this.http.post('http://localhost:4000/article-api/article', formData);
   }
 
-  deleteReviewByArticleId(articleId:string): Observable<any> {
-    // const url = `${this.apiUrl}/${reviewId}`;
-    return this.http.delete<any>(`http://localhost:4000/article-api/article/${articleId}`);
-  }
 }
 

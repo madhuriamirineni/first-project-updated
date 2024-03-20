@@ -12,21 +12,12 @@ const getUsers = async (req, res) => {
 
 const getUserByUsername = async (req, res) => {
     const user = await User.find({ username:req.params.username })
-    console.log(user)
     res.status(200).send({ message: "User found", payload: user })
 }
 
 //Create new User
 const createUser = async (req, res) => {
 
-    // //check for existing user with same username
-    // let existingUser = await User.findOne({ username: req.body.username })
-    // //if user already existed
-    // if (existingUser !== null) {
-    //     return res.status(201).send({ message: "user already existed" })
-    // }
-    // //if user not existed
-    // else {
         //hash the password
         const hashedPassword = await bcryptjs.hash(req.body.password, 6)
         //replace plain password with hashed password
@@ -40,7 +31,6 @@ const createUser = async (req, res) => {
 const loginUser = async (req, res) => {
     //get user credentials object from req
     const userCredentials = req.body;
-    // console.log(userCredentials)
     //check  username
     let user = await User.findOne({ username: userCredentials.username })
     //if invalid username
@@ -61,7 +51,7 @@ const loginUser = async (req, res) => {
             const signedToken = jwt.sign({ username: user.username }, process.env.SECRET_KEY, { expiresIn:'1d' })
             //send token to client
             res.status(200).send({ message: "login success", token: signedToken, user: user})
-            console.log(user)
+          
         }
     }
 }

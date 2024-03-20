@@ -1,5 +1,5 @@
-import { Component,inject } from '@angular/core';
-import {Router} from '@angular/router'
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home',
@@ -7,9 +7,9 @@ import {Router} from '@angular/router'
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
- router=inject(Router);
- redirectToLogin(){
-  this.router.navigate(['./login'])
- }
- 
+  router = inject(Router);
+
+  redirectToLogin() {
+    this.router.navigate(['./login']);
+  }
 }

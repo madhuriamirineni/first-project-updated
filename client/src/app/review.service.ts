@@ -9,25 +9,25 @@ import { Observable } from 'rxjs';
 export class ReviewService {
 
   http=inject(HttpClient);
-  // private apiUrl= `http://localhost:4000/reviews`;
+  
 
-  //fetch reviews by articleNo
+ 
   getReviewsByArticleId(articleId:string): Observable<Review[]> {
-    // const url = `http://localhost:4000/reviews/article/${articleId}`;
+
     return this.http.get<Review[]>(`http://localhost:4000/review-api/reviews/article/${articleId}`);
   }
-  //create a new review
+
   createReview(reviewData: Review): Observable<Review> {
     return this.http.post<Review>(`http://localhost:4000/review-api/reviews`, reviewData);
   }
 
-  updateReview(reviewId:string,Updateddata){
-    return this.http.put<Review>(`http://localhost:4000/review-api/reviews/${reviewId}`,Updateddata)
+  updateReview(reviewId:string,UpdatedData){
+    return this.http.put<Review>(`http://localhost:4000/review-api/reviews/${reviewId}`,UpdatedData)
   }
 
 
   deleteReviewByReviewId(reviewId:string): Observable<any> {
-    // const url = `${this.apiUrl}/${reviewId}`;
+    
     return this.http.delete<any>(`http://localhost:4000/review-api/reviews/${reviewId}`);
   }
 

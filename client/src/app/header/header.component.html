@@ -3,9 +3,9 @@
   <li class="nav-item">
     <a class="nav-link text-light " aria-current="page" routerLinkActive="Active" routerLink="home">HOME</a>
   </li>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link text-light" routerLinkActive="Active" routerLink="register">REGISTER</a>
-  </li>
+  </li> -->
   <li class="nav-item">
     <a class="nav-link text-light" routerLinkActive="Active" routerLink="login">LOGIN</a>
   </li>
@@ -17,13 +17,10 @@
     <a class="nav-link text-light" routerLinkActive="Active" routerLink="add-article">ADD ARTICLE</a>
   </li>
   }
-  @else{
-
-  }
 
   <li class="nav-item">
     <a class="nav-link text-light" routerLinkActive="Active" routerLink="login"
-      (click)="userService.userLogout()">LOGOUT</a>
+      (click)="userLogout()">LOGOUT</a>
   </li>
 
   }

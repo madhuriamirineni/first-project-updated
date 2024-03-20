@@ -45,14 +45,12 @@ const routes: Routes = [
     canActivate:[authGuard]
 
   },
-  //to deal with empty path
   {
     path:'',
     redirectTo:'home',
     pathMatch:'full'
 
   },
-  //to deal with unknown path
   {
     path:"**",
     component:ErrorComponent

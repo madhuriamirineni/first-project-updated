@@ -11,11 +11,9 @@ import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-// import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticleDetailsComponent } from './article-details/article-details.component';
 import { ReadMoreComponent } from './read-more/read-more.component';
 import { AddArticleComponent } from './add-article/add-article.component';
-import { TestComponent } from './test/test.component';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './auth.interceptor';
 import { NgToastModule } from 'ng-angular-popup';
@@ -29,11 +27,10 @@ import { NgToastModule } from 'ng-angular-popup';
     RegisterComponent,
     ErrorComponent,
     UserProfileComponent,
-    // DashboardComponent,
     ArticleDetailsComponent,
     ReadMoreComponent,
     AddArticleComponent,
-    TestComponent
+   
   ],
   imports: [
     BrowserModule,

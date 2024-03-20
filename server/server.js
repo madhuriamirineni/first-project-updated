@@ -5,10 +5,18 @@ const app=exp()
 //add body parsing m-w
 app.use(exp.json())
 
+const mongoose=require('mongoose')
 require('dotenv').config()
 
-const path=require('path')
+const DB_URL=process.env.LOCAL_DB_URL;
+
+//connect to database
+mongoose.connect(DB_URL)
+.then(()=>{console.log("Db connection success")})
+.catch(err=>{console.log("err in DB connection",err)})
+
 //connect angular app to server
+const path=require('path')
 app.use(exp.static(path.join(__dirname,'../client/dist/main-project/browser')))
 
 //import api
